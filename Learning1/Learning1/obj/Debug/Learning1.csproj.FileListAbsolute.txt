@@ -4,3 +4,9 @@ D:\vs2015_code\CsharpLearning\Learning1\Learning1\bin\Debug\Learning1.pdb
 D:\vs2015_code\CsharpLearning\Learning1\Learning1\obj\Debug\Learning1.csprojResolveAssemblyReference.cache
 D:\vs2015_code\CsharpLearning\Learning1\Learning1\obj\Debug\Learning1.exe
 D:\vs2015_code\CsharpLearning\Learning1\Learning1\obj\Debug\Learning1.pdb
+D:\LearnCSharp\CsharpGit\Csharp_Course\Learning1\Learning1\bin\Debug\Learning1.exe.config
+D:\LearnCSharp\CsharpGit\Csharp_Course\Learning1\Learning1\obj\Debug\Learning1.exe
+D:\LearnCSharp\CsharpGit\Csharp_Course\Learning1\Learning1\obj\Debug\Learning1.pdb
+D:\LearnCSharp\CsharpGit\Csharp_Course\Learning1\Learning1\bin\Debug\Learning1.exe
+D:\LearnCSharp\CsharpGit\Csharp_Course\Learning1\Learning1\bin\Debug\Learning1.pdb
+D:\LearnCSharp\CsharpGit\Csharp_Course\Learning1\Learning1\obj\Debug\Learning1.csprojResolveAssemblyReference.cache

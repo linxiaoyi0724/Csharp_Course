@@ -1,0 +1,6 @@
+D:\LearnCSharp\CsharpGit\Csharp_Course\Learning1\Learning1\bin\Release\Learning1.exe.config
+D:\LearnCSharp\CsharpGit\Csharp_Course\Learning1\Learning1\obj\Release\Learning1.csprojResolveAssemblyReference.cache
+D:\LearnCSharp\CsharpGit\Csharp_Course\Learning1\Learning1\bin\Release\Learning1.exe
+D:\LearnCSharp\CsharpGit\Csharp_Course\Learning1\Learning1\bin\Release\Learning1.pdb
+D:\LearnCSharp\CsharpGit\Csharp_Course\Learning1\Learning1\obj\Release\Learning1.exe
+D:\LearnCSharp\CsharpGit\Csharp_Course\Learning1\Learning1\obj\Release\Learning1.pdb
