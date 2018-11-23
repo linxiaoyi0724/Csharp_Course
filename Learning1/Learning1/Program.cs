@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-/* TestHello
+/* // TestHello
 namespace Learning1
 {
     class Program
@@ -441,96 +441,72 @@ namespace EventLearning
 }
 */
 
+
+
+/*  //FileStream Learning
 using System.IO;
-namespace EventLearning
-{
-    class Boiler
+namespace FilestreamLearning {
+    class TestFilestream
     {
-        private int temp;
-        private int pressure;
-        public Boiler(int t, int p)
+        static void Main(string[] args)
         {
-            temp = t;
-            pressure = p;
-        }
-        public int getTemp()
-        {
-            return temp;
-        }
-        public int getPressure()
-        {
-            return pressure;
-        }
-    }
-
-    class DelegateBoilerEvent
-    {
-        public delegate void BoilerLogHandler(string status);
-        public event BoilerLogHandler BoilerEventLog;
-        public void LogProcess()
-        {
-            string remarks = "O.K";
-            Boiler b = new Boiler(100, 12);
-            int t = b.getTemp();
-            int p = b.getPressure();
-            if(t > 150 || t < 80 || p <12 || p> 15)
+            FileStream f = new FileStream("sample.txt", FileMode.CreateNew, FileAccess.ReadWrite, FileShare.ReadWrite);
+            for(int i = 1; i<=20; i++)
             {
-                remarks = "Need Maintenance";
-
+                f.WriteByte((Byte)i);
             }
-            onBolierEventLog("Logging Info :\n");
-            onBolierEventLog("Temparature " + t + "\nPressure: " + p);
-            onBolierEventLog("\nMessage: " + remarks);
-            
+            f.Position = 8;
+            for (int i = 0; i <= 20; i++)
+            {
+                Console.Write(f.ReadByte() + " ");
+            }
+            f.Close();
+            Console.ReadKey();
         }
-
-        protected void onBolierEventLog(string message)
-        {
-            if (BoilerEventLog != null)
-            {
-                BoilerEventLog(message);
-            }
-        }
-
-
-        class BoilerInfoLogger
-        {
-            FileStream fs;
-            StreamWriter sw;
-            public BoilerInfoLogger(string filename)
-            {
-                fs = new FileStream(filename, FileMode.Append, FileAccess.Write);
-                sw = new StreamWriter(fs);
-            }
-
-            public void Logger(string info)
-            {
-                sw.WriteLine(info);
-            }
-
-            public void Close()
-            {
-                sw.Close();
-                fs.Close();
-            }
-
-        }
-
-
-        public class RecordBoilerInfo
-        {
-            static void Logger(string info)
-            {
-                Console.WriteLine(info);
-            }
-
-            static void Main(string[] args)
-            {
-                BoilerInfoLogger filelog = new BoilerInfoLogger("D:\\boiler.txt");
-               
-            }
-        }
-
     }
 }
+*/
+
+
+/*  //Learning StreamReader
+using System.IO;
+namespace StreamReaderLearning
+{
+    class TestStreamReader {
+        static void Main(string[] args)
+        {
+            try
+            {
+                using (StreamReader sr = new StreamReader("D:/LearnCSharp/CsharpGit/Csharp_Course/xiaoyi.txt"))
+                {
+                    string TxtLine;
+                    while((TxtLine = sr.ReadLine())!= null)
+                    {
+                        Console.WriteLine(TxtLine);
+                    }
+                }
+
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("The file is not read");
+                Console.WriteLine(e.Message);
+            }
+            Console.ReadLine();
+        }
+
+    }
+
+}
+*/
+
+
+
+
+
+
+
+
+
+
 
