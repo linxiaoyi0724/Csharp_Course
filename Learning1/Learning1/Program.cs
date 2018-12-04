@@ -468,7 +468,7 @@ namespace FilestreamLearning {
 */
 
 
-/*  //Learning StreamReader
+/*  //Learning StreamReader  
 using System.IO;
 namespace StreamReaderLearning
 {
@@ -496,9 +496,136 @@ namespace StreamReaderLearning
         }
 
     }
-
 }
 */
+
+
+/*  //Learning Text StreamWrite
+using System.IO;
+namespace StreamWriteLearning
+{
+    class TestStreamrite
+    {
+        static void Main(string[] args)
+        {
+            string[] NameList = new string[] { "xiaoyi","meizhem"};
+            using (StreamWriter s = new StreamWriter("D:/vs2015_code/CsharpLearning/XiaoyiWrite.txt"))
+            {
+                foreach(string name in NameList)
+                {
+                    s.WriteLine(name);
+                }
+            }
+            using (StreamReader sr = new StreamReader("D:/vs2015_code/CsharpLearning/XiaoyiWrite.txt"))
+            {
+                string name;
+                while((name = sr.ReadLine())!= null){
+                    Console.WriteLine(name);
+                }
+            }
+            Console.ReadLine();
+        }
+    }
+}
+*/
+
+
+/*   // Learn BinaryWrite and BinaryRead
+using System.IO;
+namespace LearningBinary
+{
+    class TestBinary
+    {
+        static void Main(string[] args)
+        {
+            int a = 25;
+            double b = 3.14157;
+            bool c = true;
+            string d = "I am happy";
+            BinaryWriter bw;
+            BinaryReader br;
+            try
+            {
+                bw = new BinaryWriter(new FileStream("D:/vs2015_code/CsharpLearning/TestBinary.txt", FileMode.Create));
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message + "can not creat file");
+                return;
+            }
+
+
+            try
+            {
+                bw.Write(a);
+                bw.Write(b);
+                bw.Write(c);
+                bw.Write(d);
+            }
+            catch(IOException e)
+            {
+                Console.WriteLine(e.Message + "can not write in file");
+                return;
+            }
+            bw.Close();
+
+            try
+            {
+                br = new BinaryReader (new FileStream("D:/vs2015_code/CsharpLearning/TestBinary.txt", FileMode.Open));
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message + "can not open file");
+                return;
+            }
+
+            try
+            {
+                a = br.ReadInt32();
+                Console.WriteLine("Integer data: {0}", a);
+                b = br.ReadDouble();
+                Console.WriteLine("Double data: {0}", b);
+                c = br.ReadBoolean();
+                Console.WriteLine("Boolean data: {0}", c);
+                d = br.ReadString();
+                Console.WriteLine("String data: {0}", d);
+                
+            }
+            catch(IOException e)
+            {
+                Console.WriteLine(e.Message + "can not read from file");
+                return;
+            }
+            br.Close();
+            Console.ReadKey();
+        }
+    }
+}
+*/
+
+/* //Learning DirectoryInfo anad FileInfo
+using System.IO;
+namespace LearningDirectory
+{
+    class TestApp
+    {
+        static void Main(string[] args)
+        {
+            DirectoryInfo d = new DirectoryInfo("C:/Windows");
+            FileInfo[] f = d.GetFiles();
+            foreach (FileInfo file in f)
+            {
+                Console.WriteLine("file name: {0} Size: {1}", file.Name, file.Length);
+            }
+            Console.ReadKey();
+
+
+        }
+    }
+}
+*/
+
+
 
 
 
