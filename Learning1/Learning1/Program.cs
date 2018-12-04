@@ -627,6 +627,94 @@ namespace LearningDirectory
 
 
 
+/*
+//difference of value type and reference type
+namespace LearningListReferenceassignment
+{
+    class TestListReferenceAndAsignment
+    {
+        static List<int> BoMs = new List<int>();
+        static void Main(string[] args)
+        {
+            for(int i = 0; i <=10; i++)
+            {
+                BoMs.Add(i);
+            }
+
+            List<int> a = null;
+            List<int> b = null;
+
+            a = GetNormalBoMs();
+            b = GetConfigBoMs();
+
+            a[0] = 5;
+            b[1] = 9;
+            for(int j =0; j < a.Count; j++)
+            {
+                Console.Write(a[j] + " ");
+                Console.Write(b[j] + " ");
+                Console.Write(BoMs[j] + " ");
+                Console.WriteLine(); 
+            }
+            Console.ReadLine();
+
+        }
+
+        //direct assignment don't change the values
+        static List<int> GetNormalBoMs()
+        {
+            List<int> boms = new List<int>();
+            foreach(int m in BoMs)
+            {
+                boms.Add(m);
+            }
+            return boms;
+        }
+
+        //change memory pointer also change the original values
+        static List<int> GetConfigBoMs()
+        {
+            List<int> boms = new List<int>();
+            boms = BoMs;
+            return boms;
+        }
+    }
+}
+*/
+
+
+
+/*  //Learning Value Type And Reference Type
+namespace LearningValueTypeAndReferenceType
+{
+    class User
+    {
+        public int Age;
+    }
+    class TestValueTypeAndReferenceType
+    {
+        static void Main(string[] args)
+        {
+            int v1 = 1;
+            int v2 = v1;
+            v2 = 100;
+            Console.WriteLine("v1 = " + v1);
+            Console.WriteLine("v2 = " + v2);
+
+            User u1 = new User();
+            u1.Age = 1;
+            User u2 = u1;
+            u2.Age = 100;
+            Console.WriteLine("u1.Age = " + u1.Age);
+            Console.WriteLine("u2.Age = " + u2.Age);
+            Console.ReadKey();
+        }
+    }
+}
+*/
+
+
+
 
 
 
