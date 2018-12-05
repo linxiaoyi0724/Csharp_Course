@@ -627,9 +627,63 @@ namespace LearningDirectory
 
 
 
+/*    //Learning Conditional
+using System.Diagnostics;
+namespace LearningAttribute
+{
+	class MyClass
+	{
+		[Conditional("RELEASE")]
+		public static void Message(string msg)
+		{
+			Console.WriteLine(msg);
+		}
+	}
+	class TestAttribute
+	{
+		static void function1()
+		{
+			MyClass.Message("In function1");
+			function2();
+		}
+		static void function2()
+		{
+			MyClass.Message("In function2");
+		}
+		static void Main(string[] args)
+		{
+			MyClass.Message("In function");
+			function1();
+			Console.ReadKey();
+		}
+	}
+}
+*/
 
 
+/*    //Learning Obselote
+namespace LearningObselote
+{
+	class TestObselote
+	{
 
+		[Obsolete("Don't use OldMethod, use NewMethod instead", true)]
+		static void OldMethod()
+		{
+			Console.WriteLine("this is a OldMethod");
+		}
+		static void NewMethod()
+		{
+			Console.WriteLine("this is a NewMethod");
+		}
+		static void Main(String[] args)
+		{
+			OldMethod();
+			Console.ReadKey();
+		}
+	}
+}
+*/
 
 
 
