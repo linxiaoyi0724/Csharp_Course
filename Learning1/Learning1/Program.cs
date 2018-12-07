@@ -775,5 +775,426 @@ namespace LearningObselote
 
 
 
+/*
+using System.Diagnostics;
+using System.Reflection;
+namespace LearningAttribute
+{
+	[AttributeUsage(AttributeTargets.Class |
+		AttributeTargets.Constructor |
+		AttributeTargets.Field |
+		AttributeTargets.Method |
+		AttributeTargets.Property,
+		AllowMultiple = true)]
+
+	public class DeBugInfo : System.Attribute
+	{
+		private int bugNo;
+		private string developer;
+		private string lastReview;
+		public string message;
+
+		public DeBugInfo(int bg, string dev, string d)
+		{
+			this.bugNo = bg;
+			this.developer = dev;
+			this.lastReview = d;
+		}
+
+		public int BugNo
+		{
+			get
+			{
+				return bugNo;
+			}
+		}
+
+		public string Develop
+		{
+			get
+			{
+				return developer;
+			}
+		}
+
+		public string LastReview
+		{
+			get
+			{
+				return lastReview;
+			}
+		}
+		public string Message
+		{
+			get
+			{
+				return message;
+			}
+			set
+			{
+				message = value;
+			}
+		}
+	}
+
+	[DeBugInfo(45, "xiaoyi", "20181205.11", Message = "Return type mismatch")]
+	[DeBugInfo(49, "xiaoyi", "20181205.12", Message = "Unused variable")]
+
+	class Rectange
+	{
+		protected double length;
+		protected double width;
+		public Rectange(double l, double w)
+		{
+			length = l;
+			width = w;
+		}
+		[DeBugInfo(55, "xiaoyi", "20181205.13", Message = "Return type mismatch")]
+
+		public double GetArea()
+		{
+			return length * width;
+		}
+		[DeBugInfo(56, "xiaoyi", "20181205.14")]
+		public void display()
+		{
+			Console.WriteLine("Length: {0}", length);
+			Console.WriteLine("width: {0}", width);
+			Console.WriteLine("Area: {0}", GetArea());
+		}
+	}
+
+		class ExecuteRectangle
+		{
+			static void Main(string[] args)
+		{
+			Rectange r = new Rectange(4.5, 7.5);
+			r.display();
+			Type type = typeof(Rectange);
+			foreach(Object attributes in type.GetCustomAttributes(false))
+			{
+				DeBugInfo dbi = (DeBugInfo)attributes;
+				if (null != dbi)
+				{
+					Console.WriteLine("Bug no: {0}", dbi.BugNo);
+					Console.WriteLine("Developer: {0}", dbi.Develop);
+					Console.WriteLine("Last Reviewed: {0}", dbi.LastReview);
+					Console.WriteLine("Remark: {0}", dbi.message);
+				}
+			}
+
+			foreach(MethodInfo m in type.GetMethods())
+			{
+				foreach(Attribute a in m.GetCustomAttributes(true))
+				{
+					DeBugInfo dbi = (DeBugInfo)a;
+					if (null != dbi)
+					{
+						Console.WriteLine("Bug no: {0}, for Method: {1}",
+								dbi.BugNo, m.Name);
+						Console.WriteLine("Developer: {0}", dbi.Develop);
+						Console.WriteLine("Last Reviewed: {0}",
+								dbi.LastReview);
+						Console.WriteLine("Remarks: {0}", dbi.Message);
+					}
+				}
+			}
+			Console.ReadLine();
+		}
+	}
+}
+*/
 
 
+
+
+
+
+/*  // Learning Reflection
+[AttributeUsage(AttributeTargets.All)]
+public class HelpAttribute : System.Attribute
+{
+	public readonly string Url;
+	private string topic;
+	public string Topic
+	{
+		get
+		{
+			return topic;
+		}
+		set
+		{
+			topic = value;
+		}
+	}
+	public HelpAttribute(string url)
+	{
+		this.Url = url;
+	}
+}
+
+
+[HelpAttribute("Information on the class Myclass")]
+class Myclass
+{
+
+}
+
+namespace LearningReflection
+{
+	class TestReflection
+	{
+		static void Main(string [] args)
+		{
+			System.Reflection.MemberInfo info = typeof(Myclass);
+			object[] attributes = info.GetCustomAttributes(true);
+			for(int i = 0; i < attributes.Length; i++)
+			{
+				System.Console.WriteLine(attributes[i]);
+			}
+			Console.ReadKey();
+		}
+	}
+}
+*/
+
+
+
+/* // learning Properties
+namespace LearningProperties
+{
+	class Stuent
+	{
+		private int code;
+		private string name;
+		private int age;
+
+		public int Code
+		{
+			get
+			{
+				return code;
+			}
+			set
+			{
+				code = value;
+			}
+		}
+
+		public string Name
+		{
+			get
+			{
+				return name;
+			}
+			set
+			{
+				name = value;
+			}
+		}
+
+
+		public int  Age
+		{
+			get
+			{
+				return age;
+			}
+			set
+			{
+				age = value;
+			}
+		}
+
+		public override string ToString()
+		{
+			return "Code = " + code + ", Name = " + name + ", Age = " + age;
+		}
+	}
+
+	class TestProperties
+	{
+		static void Main(string[] args)
+		{
+			Stuent s = new Stuent();
+			s.Code = 001;
+			s.Name = "xiaoyi";
+			s.Age = 21;
+			Console.WriteLine("Student Info: {0}", s);
+
+			s.Age += 1;
+			Console.WriteLine("Student Info: {0}", s);
+			Console.ReadKey();
+		}
+	}
+}
+*/
+
+
+/*  //Learning Abstract
+namespace LearningAbstractProperties
+{
+	public abstract class person
+	{
+		public abstract string Name
+		{
+			get;
+			set;
+		}
+
+		public abstract int Age
+		{
+			get;
+			set;
+		}
+	}
+
+	class student : person
+	{
+		private string code = "N.A";
+		private string name = "N.A";
+		private int age = 0;
+
+		public string Code
+		{
+			get
+			{
+				return code;
+			}
+			set
+			{
+				code = value;
+			}
+		}
+
+		public override string Name
+		{
+			get
+			{
+				return name;
+			}
+
+			set
+			{
+				name = value;
+			}
+		}
+
+		public override int Age
+		{
+			get
+			{
+				return age;
+			}
+
+			set
+			{
+				age = value;
+			}
+		}
+
+		public override string ToString()
+		{
+			return "Code : " + code + ",Name : " + name + ",Age : " + age;
+		}
+
+	}
+
+	class TestAbstactProperties
+	{
+		static void Main(string[] args)
+		{
+			student s = new student();
+			s.Code = "001";
+			s.Name = "xiaoyi";
+			s.Age = 22;
+			Console.WriteLine("Student Info : {0}",s);
+			s.Age += 1;
+			Console.WriteLine("Student Info: {0}", s);
+			Console.ReadLine();
+		}
+	}
+}
+*/
+
+
+/*   // Learning to read and write xml type file
+using System;
+using System.Linq;
+using System.Xml.Linq;
+
+namespace Sample2
+{
+	class program
+	{
+		static void Main(string[] args)
+		{
+			
+			XDocument xdoc = new XDocument();
+			XElement Persons = new XElement("Persons");
+			XElement Person1 = new XElement("person");
+			Person1.Add(new XElement("Name", "Tom"));
+			Person1.Add(new XElement("Age", "18"));
+			Persons.Add(Person1);
+
+			XElement Person2 = new XElement("person");
+			Person2.Add(new XElement("Name", "jack"));
+			Person2.Add(new XElement("Age", "20"));
+			Persons.Add(Person2);
+
+			xdoc.Add(Persons);
+			xdoc.Save("myXml1.xml");
+			Console.WriteLine("sucess to create xml file");
+			
+			//Console.ReadKey();
+
+			XDocument xd = XDocument.Load("myXml1.xml");
+			foreach(XElement item in xd.Root.Descendants("person"))
+			{
+				Console.WriteLine("Name: {0} Age: {1}", item.Element("Name").Value, item.Element("Age").Value);
+			}
+			Console.ReadLine();
+		}
+	}
+}
+ */
+
+
+
+/*   //Learning xml
+using System.Xml.Linq;
+namespace LearningWriteListToXml
+{
+	class TestWriteListToXml
+	{
+		static void Main(string[] args)
+		{
+			List<int> list = new List<int>();
+			for(int i = 0; i < 10 ; i++)
+			{
+				list.Add(i);
+			}
+
+			XDocument xdoc = new XDocument();
+			XElement Dots = new XElement("Dots");
+			for (int i = 0; i < 10; i++)
+			{
+				XElement dots = new XElement("dots");
+				dots.Add(new XElement("dot", list[i]));
+				Dots.Add(dots);
+			}
+			xdoc.Add(Dots);
+			xdoc.Save("Dots.xml");
+			Console.WriteLine("secess to create Dot.xml");
+		//	Console.ReadKey();
+
+			XDocument xd = XDocument.Load("Dots.xml");
+			foreach( XElement item in xd.Root.Descendants("dots"))
+			{
+				Console.WriteLine("dots coordinate: {0}", item.Element("dot").Value);
+			}
+			Console.ReadLine();
+		}
+	}
+}
+*/
