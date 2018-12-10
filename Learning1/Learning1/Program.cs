@@ -1198,3 +1198,300 @@ namespace LearningWriteListToXml
 	}
 }
 */
+
+
+
+
+
+
+/* //Learning indexer
+namespace LearningIndexer
+{
+	class TestIndexer
+	{
+		private static int size = 10;
+		public string[] NameList = new string[size];
+
+		public TestIndexer()
+		{
+			for(int i = 0; i < size; i++)
+			{
+				NameList[i] = "N.A";
+			}
+		}
+
+		public string this[int index]
+		{
+			get
+			{
+				string tmp;
+				if( index>=0 && index < size)
+				{
+					tmp = NameList[index];
+				}
+				else
+				{
+					tmp = "";
+				}
+				return tmp;
+			}
+			set
+			{
+				if (index >=0 && index < size)
+				{
+					NameList[index] = value;
+				}
+			}
+		}
+		public int  this[string name]
+		{
+			get
+			{
+				int index = 0;
+				while(index < TestIndexer.size)
+				{
+					if(NameList[index] == name)
+					{
+						return index;
+					}
+					index++;
+				}
+				return index;
+			}
+		}
+		static void Main(string[] args)
+		{
+			TestIndexer names = new TestIndexer();
+			names[0] = "xiaoyi";
+			names[1] = "xiaoke";
+			names[2] = "xiaoyao";
+			names[3] = "meizhen";
+			names[4] = "qiongzi";
+
+			for(int i = 0; i < TestIndexer.size; i++)
+			{
+				Console.WriteLine(names[i]);
+			}
+
+			Console.WriteLine(names["xiaoyao"]);
+			Console.ReadLine();
+		}
+	}
+}
+*/
+
+
+
+
+
+
+/* //Learning Indexer
+namespace LearningIndexer
+{
+	class TestIndexer
+	{
+		private int size;
+		private string[] NameList;
+		public TestIndexer(int size)
+		{
+			this.size = size;
+			NameList = new string[size];
+			for(int i = 0; i< size; i++)
+			{
+				NameList[i] = "N.A";
+			}
+		}
+
+		public string this[int index]
+		{
+			get
+			{
+				string tmp;
+				if(index >=0 && index < size)
+				{
+					tmp = NameList[index];
+				}
+				else
+				{
+					tmp = "";
+				}
+				return tmp;
+			}
+			set
+			{
+				if(index >= 0 && index < size)
+				{
+					NameList[index] = value;
+				}
+			}
+		}
+
+
+		public int this[string name]
+		{
+			get
+			{
+				int index = 0;
+				while(index < size)
+				{
+					if(NameList[index] == name)
+					{
+						return index;
+					}
+					index++;
+				}
+				return index;
+			}
+		}
+
+
+
+		static void Main(string[] args)
+		{
+			TestIndexer names = new TestIndexer(10);
+			names[0] = "xiaoyi";
+			names[1] = "xiaoke";
+			names[2] = "xiaoyao";
+			names[3] = "meizhen";
+			names[4] = "qiongzi";
+
+			for(int i =0; i < names.size; i++)
+			{
+				Console.WriteLine(names[i]);
+			}
+			Console.WriteLine(names["xiaoyao"]);
+			Console.ReadLine();
+		}
+	}
+}
+*/
+
+
+/*  //Learning Delegate
+delegate int NumberChanger(int n);
+namespace LearningDelegate
+{
+	class TestDelegate
+	{
+		public static int num = 10;
+		public static int AddNum(int n)
+		{
+			num = num + n;
+			return num;
+		}
+		public static int MulNum(int n)
+		{
+			num = num * n;
+			return num;
+		}
+		public static int  GetNum()
+		{
+			return num;
+		}
+
+
+		static void Main(string[] args)
+		{
+			NumberChanger n1 = new NumberChanger(AddNum);
+			NumberChanger n2 = new NumberChanger(MulNum);
+			n1(25);
+			Console.WriteLine("Value of Num: {0}", GetNum());
+			n2(5);
+			Console.WriteLine("Value of Num: {0}", GetNum());
+			Console.ReadLine();
+		}
+	}
+}
+*/
+
+
+
+
+/*   // Learning Multicasting of a Delegate
+delegate int NumberChanger(int n);
+namespace LearningDelegate
+{
+	class TestDelegate
+	{
+		private static int num = 10;
+		private static int AddNum(int q)
+		{
+			num += q;
+			return num;
+		}
+		private static int MulNum(int q)
+		{
+			num *= q;
+			return num;
+		}
+		private static int getNum()
+		{
+			return num;
+		}
+
+		static void Main(string[] args)
+		{
+			NumberChanger nc;
+			NumberChanger nc1 = new NumberChanger(AddNum);
+			NumberChanger nc2 = new NumberChanger(MulNum);
+			nc1(5);
+			nc2(5);
+			nc = nc1;
+			nc += nc2;
+			Console.WriteLine("Value of Num is : {0}", getNum());
+			Console.ReadKey();
+		}
+	}
+}
+*/
+
+
+
+
+/* //Learning Delegate
+using System.IO;
+namespace LearningDelegate
+{
+	class TestDelegate
+	{
+		public delegate void PrintString(string s);
+		static StreamWriter sw;
+		static FileStream fs;
+		public static void WriteToScreen(string s)
+		{
+			Console.WriteLine("the string is {0}", s);
+		}
+		public static void WriteToFile(string s)
+		{
+			fs = new FileStream("D:/LearnCSharp/CsharpGit/Csharp_Course/message.txt", FileMode.Append, FileAccess.Write);
+			sw = new StreamWriter(fs);
+			sw.Write(s);
+			sw.Flush();
+			sw.Close();
+			fs.Close();
+		}
+
+		public static void SendString(PrintString ps)
+		{
+			ps("hello world");
+		}
+
+		static void Main(string[] args)
+		{
+			PrintString ps1 = new PrintString(WriteToScreen);
+			PrintString ps2 = new PrintString(WriteToFile);
+			SendString(ps1);
+			SendString(ps2);
+			Console.ReadLine();
+		}
+	}
+}
+*/
+
+
+
+
+
+
+
+
