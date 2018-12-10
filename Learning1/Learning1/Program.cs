@@ -1448,7 +1448,7 @@ namespace LearningDelegate
 
 
 
-/* //Learning Delegate
+/*  //Learning Delegate
 using System.IO;
 namespace LearningDelegate
 {
@@ -1463,9 +1463,9 @@ namespace LearningDelegate
 		}
 		public static void WriteToFile(string s)
 		{
-			fs = new FileStream("D:/LearnCSharp/CsharpGit/Csharp_Course/message.txt", FileMode.Append, FileAccess.Write);
+			fs = new FileStream("D:/vs2015_code/CsharpLearning/message.txt", FileMode.Append, FileAccess.Write);
 			sw = new StreamWriter(fs);
-			sw.Write(s);
+			sw.WriteLine(s);
 			sw.Flush();
 			sw.Close();
 			fs.Close();
@@ -1487,6 +1487,238 @@ namespace LearningDelegate
 	}
 }
 */
+
+
+
+/*  //Learning Delegate
+namespace LearningDelegate
+{
+    class xiaozhang
+    {
+        public static void BugTicket()
+        {
+            Console.WriteLine("NND, fuck");
+        }
+        public static void BugMovieTicket()
+        {
+            Console.WriteLine("zi ji pao niu rang wo mai piao");
+        }
+    }
+
+    class xiaoming
+    {
+        public delegate void BugTicketEventHandler();
+        static void Main(string[] args)
+        {
+            BugTicketEventHandler MyDelegate = new BugTicketEventHandler(xiaozhang.BugTicket);
+            MyDelegate += xiaozhang.BugMovieTicket;
+            MyDelegate();
+            Console.ReadKey();
+        }
+    }
+}
+*/
+
+
+/* //Learning Event
+namespace LearningEvent
+{
+    class TestEvent
+    {
+        private int value;
+        public delegate void ChangeNumHandler();
+        public event ChangeNumHandler ChangeNum;
+        public TestEvent()
+        {
+            int n = 5;
+            SetValue(n);
+        }
+        public void SetValue(int n)
+        {
+            if (value != n)
+            {
+                value = n;
+                OnChangeNum();
+            }
+        }
+        public void OnChangeNum()
+        {
+            if(ChangeNum != null)
+            {
+                ChangeNum();
+            }
+            else
+            {
+                Console.WriteLine("event not fire");
+                Console.ReadKey();
+            }
+        }
+    }
+
+    class subscirp
+    {
+        public void printf()
+        {
+            Console.WriteLine("Event fire");
+            Console.ReadKey();
+        }
+    }
+
+    class MainClass
+    {
+        static void Main(string[] args)
+        {
+            TestEvent e = new TestEvent();
+            subscirp s = new subscirp();
+            e.ChangeNum += new TestEvent.ChangeNumHandler(s.printf);
+            e.SetValue(7);
+            e.SetValue(11);
+        }
+    }
+}
+*/
+
+
+
+
+/* //Learning Delegate And Event
+using System.IO;
+namespace LearningEvent
+{
+    class Boiler
+    {
+        private int temp;
+        private int pressure;
+        public Boiler(int t,int p)
+        {
+            temp = t;
+            pressure = p;
+        }
+        public int getTemp()
+        {
+            return temp;
+        }
+        public int getPressure()
+        {
+            return pressure;
+        }
+    }
+
+    class DelegateBoilerEvent
+    {
+        public delegate void Loggerhandler(string s);
+        public event Loggerhandler BolierLog;
+        public void LogPrecess()
+        {
+            string remark = "O.K";
+            Boiler b = new Boiler(100, 12);
+            int t = b.getTemp();
+            int p = b.getPressure();
+            if(t>150 || t < 80 || p<12 || p > 15)
+            {
+                remark = "Need Maintenance";
+            }
+            OnBoilerLogEvent("Logging Info: \n");
+            OnBoilerLogEvent("Temparature " + t + "\nPressur " + p);
+            OnBoilerLogEvent("\nMessage: " + remark);
+        }
+        protected void OnBoilerLogEvent(string message)
+        {
+            if(BolierLog != null)
+            {
+                BolierLog(message);
+            }
+        }
+    }
+
+    class BoilerInfoLogger
+    {
+        FileStream ps;
+        StreamWriter sw;
+        public BoilerInfoLogger(string filename)
+        {
+            ps = new FileStream(filename,FileMode.Append,FileAccess.Write);
+            sw = new StreamWriter(ps);
+        }
+        public void Logger(string info)
+        {
+            sw.WriteLine(info);
+        }
+        public void Close()
+        {
+            sw.Flush();
+            sw.Close();
+            ps.Close();
+        }
+    }
+
+    class RecordBoilerInfo
+    {
+        static void Logger(string info)
+        {
+            Console.WriteLine(info);
+        }
+
+        static void Main(string[] args)
+        {
+            BoilerInfoLogger fileLog = new BoilerInfoLogger("D:/vs2015_code/CsharpLearning/boiler_xiaoyi.txt");
+            DelegateBoilerEvent boilerEvent = new DelegateBoilerEvent();
+            boilerEvent.BolierLog += new DelegateBoilerEvent.Loggerhandler(Logger);
+            boilerEvent.BolierLog += new DelegateBoilerEvent.Loggerhandler(fileLog.Logger);
+            boilerEvent.LogPrecess();
+            Console.ReadLine();
+            fileLog.Close();
+        }
+    }
+}
+*/
+
+
+
+/*  //Learning Delegate And Event
+namespace LearningDelegateAndEvent
+{
+    class TestDelegateAndEvent
+    {
+        public delegate void DelegateTestHandler();
+        public event DelegateTestHandler EventTest;
+        public void start()
+        {
+            Console.WriteLine("Launch Event");
+            EventTest();
+            Console.ReadLine();
+        }
+    }
+    class program
+    {
+        static void Test()
+        {
+            Console.WriteLine("this is registered function");
+            Console.ReadLine();
+        }
+        static void Main(string [] args)
+        {
+            TestDelegateAndEvent app = new TestDelegateAndEvent();
+            app.EventTest += Test;
+            app.start();
+        }
+    }
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
