@@ -1842,6 +1842,138 @@ namespace LearningDelegateAndEvent
 
 
 
+/*    //Learning ArrayList
+using System.Collections;
+namespace LearnArrayList
+{
+	class TestArrayList
+	{
+		static void Main(string [] args)
+		{
+			ArrayList list = new ArrayList();
+			Console.WriteLine("prease add some numbers");
+			list.Add(44);
+			list.Add(33);
+			list.Add(43);
+			list.Add(22);
+			list.Add(99);
+			list.Add(78);
+			list.Add(65);
+			list.Add(46);
+			list.Add(55);
+			Console.WriteLine("The List Capacity is {0}",list.Capacity);
+			Console.WriteLine("The List Count is {0}", list.Count);
+
+			Console.WriteLine("Content: ");
+			
+			foreach(int i in list)
+			{
+				Console.Write(i + " ");
+			}
+			Console.WriteLine();
+			Console.WriteLine("The Sorted List is: ");
+			//list.Sort();
+			list.Remove(99);
+			list.Insert(4, 99);
+			foreach(int i in list)
+			{
+				Console.Write(i + " ");
+			}
+
+			Console.WriteLine(list.IsFixedSize);
+			Console.WriteLine(list.IsReadOnly);
+			Console.ReadLine();
+		}
+	}
+}
+*/
+
+
+
+/* //Learning HashTable
+using System.Collections;
+namespace LearningHashTable
+{
+	class TestHashTable
+	{
+		static void Main(string[] args)
+		{
+			Hashtable ht = new Hashtable();
+			ht.Add("001", "xiaoyi");
+			ht.Add("002", "meizhen");
+			ht.Add("003", "xiaoyao");
+			ht.Add("004", "qiongzi");
+			ht.Add("005", "xiaoke");
+
+			Console.WriteLine("The HashTable Count is : {0}", ht.Count);
+
+			if (ht.ContainsValue("xiaomei"))
+			{
+				Console.WriteLine("The value in HashTable is existed");
+			}
+			else
+			{
+				ht.Add("006", "xiaomei");
+			}
+
+			ICollection key = ht.Keys;
+			foreach(string k in key)
+			{
+				Console.WriteLine(k + ": " + ht[k]);
+			}
+			Console.WriteLine();
+			ht.Remove("006");
+			foreach (string k in key)
+			{
+				Console.WriteLine(k + ": " + ht[k]);
+			}
+
+			ht.Clear();
+			Console.WriteLine("The HashTable Count is: ", ht.Count);
+			Console.ReadLine();
+		}
+	}
+}
+*/
+
+
+
+/*  //Learning SortedList
+using System.Collections;
+namespace LearningSortedList
+{
+	class TestSortedList
+	{
+		static void Main(string[] args)
+		{
+			SortedList st = new SortedList();
+			st.Add("001", "xiaoyi");
+			st.Add("002", "meizhen");
+			st.Add("003", "xiaoyao");
+			st.Add("004", "qiongzi");
+			st.Add("005", "xiaoke");
+
+			Console.WriteLine("The SortedList Count is {0}", st.Capacity);
+
+			if (st.ContainsValue("xiaomei"))
+			{
+				Console.WriteLine("xiaomei is already in SortedList");
+			}
+			else
+			{
+				st.Add("006", "xiaomei");
+			}
+
+			ICollection key = st.Keys;
+			foreach(string k in key)
+			{
+				Console.WriteLine(k +" " + st[k]);
+			}
+			Console.ReadKey();
+		}
+	}
+}
+*/
 
 
 
@@ -1850,13 +1982,6 @@ namespace LearningDelegateAndEvent
 
 
 
-
-
-
-
-
-
->>>>>>> 15f48d12c77209f7230e776d5667dcb793fc77c1
 
 
 
