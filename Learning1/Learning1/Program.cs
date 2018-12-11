@@ -1490,6 +1490,139 @@ namespace LearningDelegate
 
 
 
+/*   //Learning DelegateAndEvent
+namespace LearningDelegateAndEvent
+{
+	class car
+	{
+		public delegate void CarHandler(string message);
+		public event CarHandler Exploded;
+		public event CarHandler AboutToBelow;
+		public int CurrentSpeed { get; set; }
+		public int MaxSpeed { get; set; }
+		public string PetName { get; set; }
+		public bool CarIsDead;
+
+		public car(int maxsed)
+		{
+			MaxSpeed = maxsed;
+		}
+		public car(string name, int cursed,int maxsed)
+		{
+			PetName = name;
+			CurrentSpeed = cursed;
+			MaxSpeed = maxsed;
+		}
+		public void Accelate(int delta)
+		{
+			CurrentSpeed += delta;
+			if(CurrentSpeed > MaxSpeed)
+			{
+				CarIsDead = true;
+			}
+			else
+			{
+				CarIsDead = false;
+			}
+			if (CarIsDead)
+			{
+				if(Exploded != null)
+				{
+					Exploded("the car is dead");
+				}
+			}
+			else
+			{
+				if((MaxSpeed - CurrentSpeed) > 0 && (MaxSpeed -CurrentSpeed ) < 10 && AboutToBelow != null)
+				{
+					AboutToBelow("carful buddy ! gonna blow ! ");
+					Console.WriteLine("CurrentSpeed =  {0}", CurrentSpeed);
+				}
+			}
+		}
+	}
+
+	class Answer
+	{
+		public void CarDead(string messages)
+		{
+			Console.WriteLine(messages);
+		}
+		public void NearDead(string messages)
+		{
+			Console.WriteLine(messages);
+		}
+	}
+
+	class TestDeleagteAndEvent
+	{
+		static void Main(String[] args)
+		{
+			car c = new car("benchi", 93, 100);
+			Answer a = new Answer();
+			c.Exploded += new car.CarHandler(a.CarDead);
+			c.AboutToBelow += new car.CarHandler(a.NearDead);
+			c.Accelate(6);
+			Console.ReadLine();
+			c.Accelate(3);
+			Console.ReadLine();
+		}
+	}
+}
+*/
+
+
+/*  //LearningDelegateAndEvent
+namespace DelegateAndEvent
+{
+	public delegate void RingHandler();
+	class ring
+	{
+		public event RingHandler DoIt;
+		public void RaiseRing()
+		{
+			if(DoIt != null)
+			{
+				DoIt();
+			}
+			else
+			{
+				Console.WriteLine("No thing to happend");
+			}
+		}
+	}
+	class Stuedent
+	{
+		public void GetUp()
+		{
+			Console.WriteLine("Student GetUp");
+		}
+	}
+
+	class Cooker
+	{
+		public void Cook()
+		{
+			Console.WriteLine("Cook is cook");
+		}
+	}
+
+	class TestDelegateAndEvent
+	{
+		static void Main(String[] args)
+		{
+			ring r = new ring();
+			Stuedent s = new Stuedent();
+			Cooker c = new Cooker();
+			r.DoIt += new RingHandler(s.GetUp);
+			r.DoIt += new RingHandler(c.Cook);
+			r.RaiseRing();
+			Console.ReadLine();
+		}
+	}
+}
+*/
+
 
 
 
