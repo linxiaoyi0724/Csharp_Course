@@ -2173,8 +2173,7 @@ namespace LearningGeneric
 */
 
 
-
-
+/*  //Learning format variable
 namespace LearningFormat
 {
 	class TestFormat
@@ -2187,8 +2186,128 @@ namespace LearningFormat
 		}
 	}
 }
+*/
 
 
+
+/*  //Learning Generi
+namespace LearningGeneric
+{
+	public class TestGeneric<T>
+	{
+		private T[] array;
+		public TestGeneric(int size)
+		{
+			array = new T[size + 1];
+		}
+		public T GetItem(int index)
+		{
+			return array[index];
+		}
+
+		public void SetItem(int index, T value)
+		{
+			array[index] = value;
+		}
+	}
+	class Testapp
+	{
+		static void Main(string[] args)
+		{
+			TestGeneric<int> IntArray = new TestGeneric<int>(5);
+			for(int i = 0; i < 5; i++)
+			{
+				IntArray.SetItem(i, i * 5);
+			}
+			for(int i = 0; i < 5; i++)
+			{
+				Console.Write(IntArray.GetItem(i) + " ");
+			}
+			Console.ReadLine();
+
+			TestGeneric<char> CharArray = new TestGeneric<char>(5);
+			for(int i = 0; i < 5; i++)
+			{
+				CharArray.SetItem(i, (char)(i + 97));
+			}
+			for(int i = 0; i < 5; i++)
+			{
+				Console.Write(CharArray.GetItem(i) + " ");
+			}
+			Console.ReadLine();
+		}
+	}
+}
+*/
+
+
+
+/* //Learning Generic
+namespace LearningGeneric
+{
+	class TestGeneri
+	{
+		static void swap<T>(ref T lv, ref T rv)
+		{
+			T temp = lv;
+			lv = rv;
+			rv = temp;
+		}
+		static void Main(string[] args)
+		{
+			int a = 10;
+			int b = 20;
+			char c = 'V';
+			char d = 'M';
+			Console.WriteLine("before swap: ");
+			Console.WriteLine("a = {0}, b = {1}", a, b);
+			Console.WriteLine("c = {0}, d = {1}", c ,d);
+			swap<int>(ref a, ref b);
+			swap<char>(ref c, ref d);
+			Console.WriteLine("after swap: ");
+			Console.WriteLine("a = {0}, b = {1}", a, b);
+			Console.WriteLine("c = {0}, d = {1}", c, d);
+			Console.ReadLine();
+		}
+	}
+}
+*/
+
+
+
+/* // Learning Generic
+delegate T NumberChanger<T>(T n);
+namespace LearningGeneric
+{
+	class TestDelegate
+	{
+		public int num = 10;
+		public int addNum(int n)
+		{
+			num += n;
+			return num;
+		}
+		public int mulNum(int n)
+		{
+			num *= n;
+			return num;
+		}
+	}
+	class TestApp
+	{
+		
+		static void Main(string[] args)
+		{
+			TestDelegate app = new TestDelegate();
+			NumberChanger<int> nc1 = new NumberChanger<int>(app.addNum);
+			NumberChanger<int> nc2 = new NumberChanger<int>(app.mulNum);
+			Console.WriteLine("Value of Num: {0}", nc1(5));
+			Console.WriteLine("Value of Num: {0}", nc2(5));
+			Console.ReadLine();
+		}
+	}
+}
+*/
 
 
 
