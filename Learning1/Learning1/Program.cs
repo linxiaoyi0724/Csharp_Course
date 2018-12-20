@@ -1980,6 +1980,19 @@ namespace LearningSortedList
 
 
 
+namespace LearningFormat
+{
+	class TestFormat
+	{
+		static void Main(string[] args)
+		{
+			float a = 1.00f;
+			Console.WriteLine(a.ToString(string.Format("{0:N}",a)));
+			Console.ReadLine();
+		}
+	}
+}
+
 
 
 
