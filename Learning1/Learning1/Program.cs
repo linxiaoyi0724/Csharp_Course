@@ -1,5 +1,6 @@
 ﻿#define RELEASE
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -1976,6 +1977,200 @@ namespace LearningSortedList
 */
 
 
+
+
+/*  //Learning  stack
+namespace LearningStack
+{
+    class TestStack
+    {
+        static void Main(string[] args)
+        {
+            Stack st = new Stack();
+            st.Push('A');
+            st.Push('B');
+            st.Push('C');
+            st.Push('D');
+            Console.WriteLine("Current Stack is: ");
+            foreach(char c in st)
+            {
+                Console.Write(c + " ");
+            }
+            Console.WriteLine();
+
+            st.Push('E');
+            st.Push('F');
+            Console.WriteLine("the next poppable value in stack is {0}", st.Peek());
+            Console.WriteLine("Current stack is ");
+            foreach(char c in st)
+            {
+                Console.Write(c + " ");
+            }
+            Console.WriteLine();
+
+            st.Pop();
+            st.Pop();
+            st.Pop();
+            Console.WriteLine("the stack count is {0}", st.Count);
+            Console.WriteLine("The Current Stack is : ");
+            foreach(char c in st)
+            {
+                Console.Write(c + " ");
+            }
+            Console.ReadLine();
+        }
+    }
+}
+*/
+
+
+
+
+
+
+/*  //Learning Queue
+namespace LearningQueue
+{
+    class TestQueue
+    {
+        static void Main(string[] args)
+        {
+            Queue qe = new Queue();
+            qe.Enqueue('A');
+            qe.Enqueue('B');
+            qe.Enqueue('C');
+
+            Console.WriteLine("Current Queue is ");
+            foreach(char c in qe)
+            {
+                Console.Write(c + " ");
+            }
+
+            Console.WriteLine();
+            qe.Enqueue('D');
+            qe.Enqueue('E');
+            Console.WriteLine("Current Queue is ");
+            foreach(char c in qe)
+            {
+                Console.Write(c + " ");
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("Removing some vlaues ");
+            char ch = (char)qe.Dequeue();
+            Console.WriteLine("The removed values: {0}", ch);
+
+            char ch1 = (char)qe.Dequeue();
+            Console.WriteLine("The removed values: {0}", ch1);
+            Console.ReadLine();
+        }
+    }
+}
+*/
+
+
+/*  //Learning BitArray
+namespace LearningBitArray
+{
+    class TestBitArray
+    {
+        static void Main(string [] args)
+        {
+            BitArray ba1 = new BitArray(8);
+            BitArray ba2 = new BitArray(8);
+            byte[] a = { 60 };
+            byte[] b = { 13 };
+            ba1 = new BitArray(a);
+            ba2 = new BitArray(b);
+
+            Console.WriteLine("Bit array ba1: 60");
+            for (int i = 0; i < ba1.Count; i++)
+            {
+                Console.Write("{0, -6}", ba1[i]);
+            }
+            Console.WriteLine();
+
+
+            Console.WriteLine("Bit array ba2: 13");
+            for(int i = 0; i < ba2.Count; i++)
+            {
+                Console.Write("{0, -6}", ba2[i]);
+            }
+            Console.WriteLine();
+
+            BitArray ba3 = new BitArray(8);
+            ba3 = ba1.And(ba2);
+            Console.WriteLine("Bit array ba3 after AND opreation : 12");
+            for(int i = 0; i < ba3.Count; i++)
+            {
+                Console.Write("{0,-6}", ba3[i]);
+            }
+            Console.WriteLine();
+
+            BitArray ba4 = new BitArray(8);
+            ba4 = ba1.Or(ba2);
+            for(int i = 0; i < ba4.Count; i++)
+            {
+                Console.Write("{0,-6}", ba4[i]);
+            }
+            Console.ReadLine();
+        }
+    }
+}
+*/
+
+
+
+/*  //Learning Generic
+namespace LearningGeneric
+{
+    class MyGeneric<T>
+    {
+        private T[] array;
+        public MyGeneric(int size)
+        {
+            array = new T[5];
+        }
+        public void SetItem(int index , T value)
+        {
+            array[index] = value;
+        }
+        public T GetItem(int index)
+        {
+            return array[index];
+        }
+    }
+
+    class TestGeneric
+    {
+        static void Main(string[] args)
+        {
+            MyGeneric<int> myi = new MyGeneric<int>(5);
+            for(int i = 0; i < 5; i++)
+            {
+                myi.SetItem(i, i * 5);
+            }
+            for(int i = 0; i < 5; i++)
+            {
+                Console.Write(myi.GetItem(i) + " ");
+            }
+            Console.WriteLine();
+
+            MyGeneric<char> myc = new MyGeneric<char>(5);
+            for(int i = 0; i < 5; i++)
+            {
+                myc.SetItem(i, (char)(i + 97));
+            }
+            for(int i = 0; i < 5; i++)
+            {
+                Console.Write(myc.GetItem(i) + " ");
+            }
+            Console.WriteLine();
+            Console.ReadLine();
+        }
+    }
+}
+*/
 
 
 
