@@ -2311,6 +2311,163 @@ namespace LearningGeneric
 
 
 
+/*  // Learning Anonymous
+namespace LearningAnonymous
+{
+	public class TestAnonymous
+	{
+		delegate void NumChange(int n);
+		public static int num = 10;
+		public static void addNum(int n)
+		{
+			num += n;
+		}
+		public static void MulNum(int n)
+		{
+			num *= n;
+		}
+		public static void getItem()
+		{
+			Console.WriteLine("The value is : {0}", num);
+		}
+
+
+		static void Main(string[] args)
+		{
+			NumChange nc = delegate (int n)
+			{
+				Console.WriteLine("The value is : {0}", n);
+			};
+			nc(5);
+			NumChange nc1 = new NumChange(addNum);
+			nc1(5);
+			getItem();
+			NumChange nc2 = new NumChange(MulNum);
+			nc2(5);
+			getItem();
+			Console.ReadLine();
+		}
+	}
+}
+*/
 
 
 
+/* //Learning Point
+namespace LearningUnsafe
+{
+	public class TestUnsafe
+	{
+		static unsafe void Main(string[] args)
+		{
+			int var = 9;
+			int* p = &var;
+			Console.WriteLine("The var is: {0}", var);
+			Console.WriteLine("The address is: {0}", (int)p);
+			Console.ReadKey();
+		}
+	}
+}
+*/
+
+
+/* // Learning Ref
+namespace Learningref
+{
+	public class Testref
+	{
+		static void swap(ref int a , ref int b)
+		{
+			int temp;
+			temp = a;
+			a = b;
+			b = temp;
+		}
+		static void Main(string[] args)
+		{
+			int c = 10;
+			int d = 20;
+			Console.WriteLine("c = {0}. d = {1}", c, d);
+			swap(ref c, ref d);
+			Console.WriteLine("c = {0}. d = {1}", c, d);
+			Console.ReadLine();
+		}
+	}
+}
+*/
+
+
+
+/*  // Learning Point
+namespace LearningPoint
+{
+	public class TestPoint
+	{
+		static void Main(string[] args)
+		{
+			unsafe
+			{
+				int var = 20;
+				int* p = &var;
+				Console.WriteLine("The var is : {0}", var);
+				Console.WriteLine("The address of var is :{0}", (int)p);
+				Console.WriteLine("The var is : {0}", p->ToString());
+				Console.WriteLine("The var is: {0}", *p);
+				Console.ReadLine();
+			}
+		}
+	}
+}
+*/
+
+
+
+
+/*  //Learning Point
+namespace LearningPoint
+{
+	public class TestPoint
+	{
+		static unsafe void swap(int* a, int* b)
+		{
+
+			int temp;
+			temp = *a;
+			*a = *b;
+			*b = temp;
+		}
+		static unsafe void Main(String[] args)
+		{
+			int var1 = 20;
+			int var2 = 10;
+			Console.WriteLine("Before swap: var1 = {0}, var2 = {1}",var1,var2);
+			swap(&var1, &var2);
+			Console.WriteLine("After swap: var1 = {0}, var2 = {1}",var1,var2);
+			Console.ReadLine();
+		}
+
+	}
+}
+*/
+ 
+
+/* //Learning PointArray
+namespace LearningPointArray
+{
+	public class TestPointArray
+	{
+		static unsafe void Main(string[] args)
+		{
+			int[] list = new int[] { 100, 200, 300, 400 };
+			fixed (int* ptr = list)
+				for(int i = 0; i < 4; i++)
+				{
+					Console.WriteLine("The address of list[{0}] = {1}", i, (int)(ptr + i));
+					Console.WriteLine("The Value of list[{0}] = {1}", i, *(ptr + i));
+				}
+			Console.ReadLine();
+		}
+	}
+}
+*/
+ 
