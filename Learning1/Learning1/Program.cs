@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 /* // TestHello
 namespace Learning1
@@ -2471,3 +2472,151 @@ namespace LearningPointArray
 }
 */
  
+
+
+
+/* //Learning Thread
+namespace LearningThread
+{
+	public class TestThread
+	{
+		static void Main(string[] args)
+		{
+			Thread th = Thread.CurrentThread;
+			th.Name = "MainThread";
+			Console.WriteLine("this is {0} Thread.", th.Name);
+			Console.ReadLine();
+		}
+	}
+}
+*/
+
+
+
+
+
+/* // Creat Thread
+namespace LearningThread
+{
+	public class TestThread
+	{
+		static void Calltochildthread()
+		{
+			Console.WriteLine("The child thread is created");
+		}
+		static void Main(string[] args)
+		{
+			ThreadStart childref = new ThreadStart(Calltochildthread);
+			Console.WriteLine("The Main: the child thread is created");
+			Thread th = new Thread(childref);
+			th.Start();
+			Console.ReadLine();
+		}
+	}
+}
+*/
+
+
+
+/* //Manager Thread
+namespace LearningThread
+{
+	public class TestThread
+	{
+		public static void Calltochildthread()
+		{
+			Console.WriteLine("The child thread is start!");
+			int sleepfor = 5000;
+			Console.WriteLine("The thread is sleep for {0} secend", sleepfor / 1000);
+			Thread.Sleep(sleepfor);
+			Console.WriteLine("The thread is resume.");
+		}
+
+		public static void Main(string[] args)
+		{
+			ThreadStart childref = new ThreadStart(Calltochildthread);
+			Console.WriteLine("The Main: the child thread is created");
+			Thread th = new Thread(childref);
+			th.Start();
+			Console.ReadLine();
+		}
+	}
+}
+*/
+
+
+
+/* //Learning Thread Abort
+namespace LearningThread
+{
+	public class TestThread
+	{
+		public static void Calltochildthread()
+		{
+			Console.WriteLine("The thread is start!");
+			try
+			{
+				for (int i = 0; i <= 10; i++)
+				{
+					Console.WriteLine(i);
+					Thread.Sleep(1000);
+				}
+			}
+			catch (ThreadAbortException e)
+			{
+				Console.WriteLine("The thread is aborted");
+			}
+			finally
+			{
+				Console.WriteLine("the thread is stop");
+			}
+		}
+
+		public static void Main(string[] args)
+		{
+			ThreadStart childthread = new ThreadStart(Calltochildthread);
+			Console.WriteLine("the child thread is created");
+			Thread th = new Thread(childthread);
+			th.Start();
+			Thread.Sleep(2000);
+			th.Abort();
+			Console.ReadLine();
+		}
+	}
+}
+*/
+
+
+
+/*
+namespace LearningThread
+{
+	public class TestThread
+	{
+		public static void method()
+		{
+			Console.WriteLine("Don't have parameter");
+		}
+		public static void method(object data)
+		{
+			string datastr = data as string;
+			Console.WriteLine("have parameter with {0}", datastr);
+		}
+
+		public static void Main(string[] args)
+		{
+			Thread th1 = new Thread(new ThreadStart(method));
+			Thread th2 = new Thread(new ParameterizedThreadStart(method));
+			th1.Start();
+			th1.IsBackground = true;
+			th2.IsBackground = true;
+			th2.Start("hello");
+			Console.ReadLine();
+		}
+	}
+}
+*/
+
+
+
+
